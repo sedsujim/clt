@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>CLT</title>
+<style>
+:root{
+  --bg:#000;
+  --card:#0f0f0f;
+  --muted:#9e9e9e;
+  --text:#ffffff;
+  --accent:#ffffff;
+  --glass:rgba(255,255,255,0.04);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background:linear-gradient(180deg,#000 0%, #070707 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+.container{max-width:1100px;margin:0 auto;padding:28px}
+.header{display:flex;align-items:center;gap:16px;padding:20px 0}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:56px;height:56px;flex:0 0 56px}
+.title{font-size:30px;letter-spacing:3px}
+.subtitle{color:var(--muted);font-size:0.95rem;margin-top:6px}
+.actions{margin-left:auto;display:flex;gap:12px;align-items:center}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.08);text-decoration:none;font-weight:700;cursor:pointer;backdrop-filter:blur(4px)}
+.btn.primary{background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03));border:1px solid rgba(255,255,255,0.12);color:var(--text)}
+.btn.disabled{opacity:.35;pointer-events:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:28px}
+.card{background:var(--card);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 24px rgba(0,0,0,0.6);position:relative;overflow:hidden;transform:translateY(0);transition:transform .28s,box-shadow .28s}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,0.7)}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--muted);font-weight:700;font-size:0.82rem;margin-right:8px}
+.h3{font-size:1.05rem;margin-bottom:8px}
+.small{color:var(--muted);font-size:0.95rem}
+.notice{color:var(--muted);font-size:0.88rem;margin-top:10px}
+.footer{margin-top:40px;padding:24px 0;text-align:center;color:var(--muted);font-size:0.9rem;border-top:1px solid rgba(255,255,255,0.02)}
+.fade{opacity:0;transform:translateY(12px);animation:fadeIn .6s forwards}
+@keyframes fadeIn{to{opacity:1;transform:none}}
+.socials{display:flex;gap:10px;margin-top:12px}
+.icon{width:40px;height:40px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);display:inline-flex;align-items:center;justify-content:center;color:var(--text);font-weight:700}
+.header-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+@media (max-width:720px){.header{flex-direction:column;align-items:flex-start}.actions{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="header fade" style="animation-delay:0.05s">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <rect width="64" height="64" fill="#000"/>
+        <path d="M20 36c0-8 8-14 12-14s12 6 12 14v6h-24v-6z" fill="#fff"/>
+        <path d="M12 24c4-6 12-8 16-6l-2 6c-6-2-14 2-14 2z" fill="#fff"/>
+        <path d="M52 24c-4-6-12-8-16-6l2 6s8-4 14-2z" fill="#fff"/>
+        <circle cx="28.5" cy="34.5" r="2.2" fill="#000"/>
+        <circle cx="35.5" cy="34.5" r="2.2" fill="#000"/>
+      </svg>
+      <div>
+        <div class="title">CLT</div>
+        <div class="subtitle" id="subtitle"></div>
+      </div>
+    </div>
+
+    <div class="actions header-right">
+      <div>
+      </div>
+      <div class="small" style="color:var(--muted)">Demo release · No active payments</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="fade" style="animation-delay:0.12s">
+      <h2 class="h3">About CLT</h2>
+      <p class="small" id="aboutText"></p>
+    </section>
+
+    <section id="download" class="grid" style="margin-top:18px">
+      <div class="card fade" style="animation-delay:0.18s">
+        <div class="h3">CLT Optimizer — Lite <span class="badge">Pre-Alpha</span></div>
+        <p class="small">Safe Windows optimizations: temporary cleanup, visual effects, power plan adjustments and logging. Includes restore.</p>
+        <a class="btn primary" href="https://github.com/sedsujim/clt-optimizer-lite/releases/tag/0.1.0" download style="margin-top:12px">Download Lite (ZIP)</a>
+      </div>
+
+      <div class="card fade" style="animation-delay:0.24s">
+        <div class="h3">CLT Optimizer — Pro <span class="badge">Planned</span></div>
+        <p class="small">Pro will include UI, profiles and automatic restore. Distribution via Gumroad.</p>
+        <a class="btn disabled" href="#" style="margin-top:12px">Buy — Coming soon</a>
+      </div>
+
+      <div class="card fade" style="animation-delay:0.36s">
+        <div class="h3">Moonlight Monitor <span class="badge">Pre-Alpha</span></div>
+        <p class="small">Real-time monitor for Moonlight streaming. Debian-based packages available.</p>
+        <a class="btn primary" href="https://github.com/sedsujim/moonlight-monitor/releases/tag/pre-alpha" target="_blank" style="margin-top:12px">View on GitHub</a>
+      </div>
+    </section>
+
+    <section class="fade" style="animation-delay:0.42s;margin-top:28px">
+      <h2 class="h3">Community</h2>
+      <div class="card">
+        <p class="small">Follow for release updates and tutorials</p>
+        <div class="socials" style="margin-top:12px">
+          <a class="btn primary" href="https://www.youtube.com/@CTL-Page" aria-label="YouTube">Youtube</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer fade" style="animation-delay:0.48s">
+    <div>CLT — Lightweight system tools</div>
+    <div class="small" style="margin-top:8px">This site publishes Lite scripts only. Pro features will be released later.</div>
+  </footer>
+</div>
+
+<script>
+const lang = navigator.language && navigator.language.startsWith('es') ? 'es' : 'en';
+const T = {
+  en: {
+    subtitle: 'Lightweight system tools for real performance',
+    about: 'CLT creates small, reliable utilities that improve responsiveness on low-end and mid-range systems. Changes are reversible and documented.'
+  },
+  es: {
+    subtitle: 'Herramientas ligeras para rendimiento real',
+    about: 'CLT crea utilidades pequeñas y confiables que mejoran la respuesta en sistemas de gama baja y media. Los cambios son reversibles y están documentados.'
+  }
+};
+document.getElementById('subtitle').innerText = T[lang].subtitle;
+document.getElementById('aboutText').innerText = T[lang].about;
+document.getElementById('btnDownload').addEventListener('click', ()=> {
+  setTimeout(()=>{ location.hash = '#download'; }, 120);
+});
+document.addEventListener('DOMContentLoaded', ()=> {
+  document.querySelectorAll('.fade').forEach((el,i) => {
+    el.style.animationDelay = (i * 0.06) + 's';
+  });
+});
+</script>
+</body>
+</html>
